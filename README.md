@@ -21,7 +21,7 @@ TipTrip is meant to be a ride-share/pickup app where the drivers are people you 
 
 
 ## Wireframes:
-Landing Page\n
+Landing Page<br/><br/>
 ![Screen Shot 2022-04-16 at 11 19 16 AM](https://user-images.githubusercontent.com/55766816/163686905-be196aa1-c791-4fc8-abc4-dcffad92218e.png)
 About Page
 ![Screen Shot 2022-04-16 at 11 19 29 AM](https://user-images.githubusercontent.com/55766816/163686906-9a56a6e4-c31f-41bc-afc5-49a2a5eba2b7.png)

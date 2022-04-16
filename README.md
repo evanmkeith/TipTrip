@@ -17,7 +17,8 @@ TipTrip is meant to be a ride-share/pickup app where the drivers are people you 
 - As a user, I want to see the location that the driver services.
 - As a driver, I want to be able to set my "rate" or what I expect in return for a pickup.
 
-## Wireframes:![Screen Shot 2022-04-16 at 11 19 16 AM](https://user-images.githubusercontent.com/55766816/163686905-be196aa1-c791-4fc8-abc4-dcffad92218e.png)
+## Wireframes:
+![Screen Shot 2022-04-16 at 11 19 16 AM](https://user-images.githubusercontent.com/55766816/163686905-be196aa1-c791-4fc8-abc4-dcffad92218e.png)
 ![Screen Shot 2022-04-16 at 11 19 29 AM](https://user-images.githubusercontent.com/55766816/163686906-9a56a6e4-c31f-41bc-afc5-49a2a5eba2b7.png)
 ![Screen Shot 2022-04-16 at 11 19 37 AM](https://user-images.githubusercontent.com/55766816/163686907-0bceeda8-b425-4859-aaa5-23af9816876e.png)
 ![Screen Shot 2022-04-16 at 11 20 03 AM](https://user-images.githubusercontent.com/55766816/163686912-38252b5f-feb7-48f4-a9b1-1fea115e61ba.png)

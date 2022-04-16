@@ -18,20 +18,20 @@ TipTrip is meant to be a ride-share/pickup app where the drivers are people you 
 - As a driver, I want to be able to set my "rate" or what I expect in return for a pickup/lend.
 - As a user, I want to be able to see if I can borrow a friends car at a later date.
 - As a user, I want to be able to see how many times a friend has been a driver or lent out their car. 
-- 
+
 
 ## Wireframes:
-#Landing Page
+Landing Page\n
 ![Screen Shot 2022-04-16 at 11 19 16 AM](https://user-images.githubusercontent.com/55766816/163686905-be196aa1-c791-4fc8-abc4-dcffad92218e.png)
-#About Page
+About Page
 ![Screen Shot 2022-04-16 at 11 19 29 AM](https://user-images.githubusercontent.com/55766816/163686906-9a56a6e4-c31f-41bc-afc5-49a2a5eba2b7.png)
-#User Page
+User Page
 ![Screen Shot 2022-04-16 at 11 19 37 AM](https://user-images.githubusercontent.com/55766816/163686907-0bceeda8-b425-4859-aaa5-23af9816876e.png)
-#Driver Page
+Driver Page
 ![Screen Shot 2022-04-16 at 11 20 03 AM](https://user-images.githubusercontent.com/55766816/163686912-38252b5f-feb7-48f4-a9b1-1fea115e61ba.png)
-#User - not logged in Page
+User - not logged in Page
 ![Screen Shot 2022-04-16 at 11 20 15 AM](https://user-images.githubusercontent.com/55766816/163686913-ad69f22f-70b6-418a-8ffe-ea6c7e3c2381.png)
-#Contacts Page
+Contacts Page
 ![Screen Shot 2022-04-16 at 11 20 28 AM](https://user-images.githubusercontent.com/55766816/163686914-5a83c7f5-de6d-41e6-99d5-5ac8b9813bfe.png)
 
 

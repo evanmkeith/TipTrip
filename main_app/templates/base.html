@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,22 @@
     <title>TipTrip</title>
 </head>
 <body>
+    <nav>
+        <a href="/">Landing</a>
+        <span> | </span>
+        <a href="/about">About</a>
+        <span> | </span>
+        <a href="/user">Profile</a>
+        <span> | </span>
+        <a href="/rating/create">Add Rating</a>
+        <span> | </span>
+        <a href="/admin">Admin</a>
+        <span> | </span>
+        <a href="/requests">Requests</a>
+        <span> | </span>
+        <a href="/contacts">Contacts</a>
+        <span> | </span>
+    </nav>
     {% block content %}
 
     {% endblock %}

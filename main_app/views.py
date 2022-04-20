@@ -10,3 +10,14 @@ class Landing(TemplateView):
 class About(TemplateView):
     template_name = 'about.html'
 
+class User(TemplateView):
+    template_name = 'user.html'
+
+class Rating(TemplateView):
+    template_name = 'rating.html'
+
+class Requests(TemplateView):
+    template_name = 'requests.html'
+
+class Contacts(TemplateView):
+    template_name = 'contacts.html'

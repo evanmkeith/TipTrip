@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
-from .models import Profile, Rating, Request
+from .models import Profile, Rating
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django import forms
 from django.urls import reverse
@@ -63,14 +63,47 @@ class Delete_Profile(DeleteView):
 
 #@login_required
 def profile(request, pk):
-    user = User.objects.get(pk=pk)
-    user_profile = Profile.objects.get(user=user)
+    user_account = User.objects.get(pk=pk)
+    user_profile = Profile.objects.get(user=user_account)
+    loggedin_user = request.user
 
-    return render(request, 'profile.html', {'user': user, 'user_profile': user_profile})
+    user_ratings = []
 
-class Rating(TemplateView):
-    template_name = 'rating.html'
+    for rating in user_profile.ratings.all():
+        print(rating)
+        user_ratings.append(Rating.objects.get(pk=rating.pk))
 
+    print(user_ratings)
+
+    return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'user_ratings': user_ratings})
+
+class Rating_Form(forms.ModelForm): 
+    class Meta: 
+        model=Rating
+        fields = ['comment', 'rating']
+
+def Create_Rating(request, pk, id):
+    if request.method == 'POST': 
+        form = Rating_Form(request.POST)
+        print("here")
+        if form.is_valid():
+            print("now here")
+            comment = form.cleaned_data['comment']
+            rating = form.cleaned_data['rating']
+            print("this spot here")
+            Rating.objects.create(reviewee = User.objects.get(pk=id), reviewer = User.objects.get(pk=pk), comment=comment, rating=rating)
+            print("done")
+
+            return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
+        else:
+            reviewee = Profile.objects.get(id=id)
+
+            return render(request, 'create_rating.html', {'form': form , 'reviewee': reviewee})
+    else: 
+        form=Rating_Form()
+        reviewee = Profile.objects.get(id=id)
+        return render(request, 'create_rating.html', {'form': form , 'reviewee': reviewee})
+    
 class Contacts(TemplateView):
     model = Profile
     template_name = 'contacts.html'

@@ -23,17 +23,18 @@ RATING = (
     ('5', '5')
 )
 
-class Request(models.Model):
-    requester = models.ForeignKey(User, related_name= 'user_requester',on_delete=models.PROTECT)
-    vehicle_owner = models.ForeignKey(User, on_delete=models.PROTECT)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
 class Rating(models.Model): 
-    reviewee = models.ForeignKey(User, related_name='user_reviewee', on_delete=models.PROTECT)
-    reviwer = models.ForeignKey(User, on_delete=models.PROTECT)
+    reviewee = models.ForeignKey(User, related_name='user_reviewee', on_delete=models.CASCADE)
+    reviewer = models.ForeignKey(User, on_delete=models.PROTECT)
     comment = models.CharField(max_length=250, blank=True)
     rating = models.CharField(max_length=1, choices = RATING)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.pk
+
+    class Meta: 
+        ordering = ['created_at']
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

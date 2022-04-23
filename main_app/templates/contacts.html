@@ -30,6 +30,7 @@
                 <br>
                 <a href="sms:{{contact.phone_number}}">Text</a>
                 <a href="{% url 'remove_contact' user.pk contact.pk %}">Remove</a>
+                <a href="{% url 'create_rating' user.pk contact.pk %}">Rate</a>
             </li>
         {% empty %}
             <div>You have not added any contacts yet.</div>

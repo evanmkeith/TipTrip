@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>You are submitting a rating for {{reviewee}}</p>
+    <form method="post">
+        <!-- Security Feature  -->
+        {% csrf_token %} 
+        <!--  Generate inputs  -->
+        {{form.as_p}} 
+        <!--  Submit form  -->
+          <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

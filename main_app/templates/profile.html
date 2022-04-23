@@ -1,22 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{user}}'s Profile Page</h1>
+    <h1>{{user_account}}'s Profile Page</h1>
     {% if user_profile.image_link != "" %}
         <img src="{{user_profile.image_link}}" alt="{{user_profile.name}}" />
     {% else %}
         <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
     {% endif %}
-    <ul>
-        <li>Name: {{user_profile.name}}</li>
-        <li>Zip Code: {{user_profile.zip_code}}</li>
-        <li>Bio: {{user_profile.bio}}</li>
-        <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
-        <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
-        <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
-        <li>Number of Seats: {{user_profile.num_seats}}</li>
-    </ul>
 
-    <a href="{% url 'edit_profile' user.pk %}">Edit</a>
-    <a href="{% url 'delete_profile' user.pk %}">Delete</a>
+
+    {% if loggedin_user.pk == user_account.pk %}
+        <ul>
+            <li>Name: {{user_profile.name}}</li>
+            <li>Zip Code: {{user_profile.zip_code}}</li>
+            <li>Bio: {{user_profile.bio}}</li>
+            <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
+            <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
+            <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
+            <li>Number of Seats: {{user_profile.num_seats}}</li>
+        </ul>
+        <a href="{% url 'edit_profile' user.pk %}">Edit</a>
+        <a href="{% url 'delete_profile' user.pk %}">Delete</a>
+    {% else %}
+        <ul>
+            <li>Name: {{user_profile.name}}</li>
+            <li>Zip Code: {{user_profile.zip_code}}</li>
+            <li>Bio: {{user_profile.bio}}</li>
+        </ul>
+        {% if user_profile.vehicle_type or user_profile.vehicle_make%}
+            <h4>Vehicle Information:</h4>
+            <ul>
+                <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
+                <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
+                <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
+                <li>Number of Seats: {{user_profile.num_seats}}</li>
+                <li>Fee: {{user_profile.fee}}</li>
+                <li>Active: {{user_profile.available}}</li>
+            </ul>
+        {% endif %}
+       
+            {% for rating in user_ratings%}
+                <p>rating</p>
+            {% endfor %}
+     
+        
+    {% endif %}
+    
+    
+
+    
 {% endblock %}

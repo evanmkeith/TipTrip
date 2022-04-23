@@ -50,7 +50,6 @@ class Profile(models.Model):
     bio = models.CharField(max_length=250, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     contacts = models.ManyToManyField(User, related_name = "profile_contacts", blank=True)
-    requests = models.ForeignKey(Request, on_delete=models.PROTECT, blank=True, null=True)
     ratings = models.ManyToManyField(Rating, blank=True)
 
     def __str__(self):

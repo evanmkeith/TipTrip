@@ -71,9 +71,6 @@ def profile(request, pk):
 class Rating(TemplateView):
     template_name = 'rating.html'
 
-class Requests(TemplateView):
-    template_name = 'requests.html'
-
 class Contacts(TemplateView):
     model = Profile
     template_name = 'contacts.html'

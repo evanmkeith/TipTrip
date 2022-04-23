@@ -22,7 +22,12 @@
                 <span>Car Type: {{contact.vehicle_type}} |</span>
                 <span>Seats: {{contact.num_seats}}</span><br>
                 <span>Fee: {{contact.fee}} |</span>
-                <span>Available: {{contact.available}}</span><br>
+                {% if contact.available == True %}
+                    <span>Available: Yes</span>
+                {% else %}
+                    <span>Available: Yes</span>
+                {% endif %}
+                <br>
                 <a href="sms:{{contact.phone_number}}">Text</a>
                 <a href="{% url 'remove_contact' user.pk contact.pk %}">Remove</a>
             </li>

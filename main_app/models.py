@@ -47,7 +47,7 @@ class Profile(models.Model):
     vehicle_model = models.CharField(max_length=15, blank=True)
     num_seats = models.IntegerField(blank=True, null=True)
     fee = models.CharField(max_length=160, blank=True)
-    available = models.BooleanField
+    available = models.BooleanField()
     bio = models.CharField(max_length=250, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     contacts = models.ManyToManyField(User, related_name = "profile_contacts", blank=True)

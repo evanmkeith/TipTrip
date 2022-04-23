@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{user_account}}'s Profile Page</h1>
     {% if user_profile.image_link != "" %}
         <img src="{{user_profile.image_link}}" alt="{{user_profile.name}}" />
     {% else %}
@@ -38,10 +37,13 @@
                 <li>Active: {{user_profile.available}}</li>
             </ul>
         {% endif %}
-       
-
-     
-        
+       <h3>Reviews:</h3>
+        {% for rating in ratings %}
+            <div>
+                <h4>{{rating.reviewer}} | {{rating.rating}} Stars</h4>
+                <p>{{rating.comment}}</p>
+            </div>
+        {% endfor %}
     {% endif %}
     
     

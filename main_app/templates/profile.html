@@ -2,5 +2,17 @@
 
 {% block content %}
     <h1>{{user}}'s Profile Page</h1>
-    <p>Name: {{user_profile}}</p>
+    <img src="{{user_profile.image_link}}" alt="{{user_profile.name}}" />
+    <ul>
+        <li>Name: {{user_profile.name}}</li>
+        <li>Zip Code: {{user_profile.zip_code}}</li>
+        <li>Bio: {{user_profile.bio}}</li>
+        <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
+        <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
+        <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
+        <li>Number of Seats: {{user_profile.num_seats}}</li>
+    </ul>
+
+    <a href="{% url 'edit_profile' user_profile.pk %}">Edit</a>
+    <a href="{% url 'delete_profile' user.pk %}">Delete</a>
 {% endblock %}

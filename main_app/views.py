@@ -105,8 +105,7 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return render(request, 
-                    'profile.html', {"pk": request.user.pk})
+                    return HttpResponseRedirect('/user/'+str(user.id))
                 else: 
                     print('The account has been disabled.')
                     return render(request, 'login.html', {'form': form})

@@ -24,6 +24,7 @@
                 <span>Fee: {{contact.fee}} |</span>
                 <span>Available: {{contact.available}}</span><br>
                 <a href="sms:{{contact.phone_number}}">Text</a>
+                <a href="{% url 'remove_contact' user.pk contact.pk %}">Remove</a>
             </li>
         {% empty %}
             <div>You have not added any contacts yet.</div>

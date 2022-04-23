@@ -17,9 +17,9 @@
             <span> | </span>
             <a href="/requests">Requests</a>
             <span> | </span>
-            <a href="user/{{user.id}}/contacts">Contacts</a>
+            <a href="{% url 'contacts' user.id %}">Contacts</a>
             <span> | </span>
-            <a href="/user/{{user.id}}">Profile</a>
+            <a href="{% url 'profile' user.id %}">Profile</a>
             <span> | </span>
             <a href="/rating/create">Add Rating</a>
             <span> | </span>

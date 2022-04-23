@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Contacts</h1>
-
     <form>
         <div>
-            <input type="text" name="phone_number" placeholder="Find friends to add using their phone number (No dashes)"/>
+            <input type="text" name="phone_number" placeholder="Phone number (No dashes)"/>
             <input type="submit" value="Search" />
         </div>
         <a href="{% url 'contacts' user.pk %}">Clear Search</a>
@@ -14,14 +12,22 @@
     <h1>{{header}}</h1>
     {% for contact in contacts %}
         <p>{{contact.name}}</p>
+        <a href="{% url 'add_contact' user.pk contact.pk %}">Add</a>
     {% endfor %}
-
+    <h4>Your Contacts</h4>
     <ul>
-        {% for contact in profile.contacts.all %}
-            <li>{{contact.name}}</li>
+        {% for contact in contact_info %}
+            <li>
+                <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a><br>
+                <span>Car Type: {{contact.vehicle_type}} |</span>
+                <span>Seats: {{contact.num_seats}}</span><br>
+                <span>Fee: {{contact.fee}} |</span>
+                <span>Available: {{contact.available}}</span><br>
+                <a href="sms:{{contact.phone_number}}">Text</a>
+            </li>
         {% empty %}
             <div>You have not added any contacts yet.</div>
         {% endfor %}
-    </ul>
+    </ul> 
 
 {% endblock %}

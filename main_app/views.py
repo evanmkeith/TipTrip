@@ -84,7 +84,24 @@ class Contacts(TemplateView):
         if phone_number != None:
             context["contacts"] = Profile.objects.filter(phone_number__icontains=phone_number)
             context["header"] = f'Searching for {phone_number}'
+            
+        context["user_profile"] = Profile.objects.get(pk=self.request.user.pk)
+
+
+        context["contact_info"] = []
+
+        for contact in context["user_profile"].contacts.all(): 
+            context["contact_info"].append(Profile.objects.get(pk = contact.pk))
+        
         return context
+
+def Add_Contact(request, pk, id):
+    user_contacts = Profile.objects.get(pk=pk)
+    contact = User.objects.get(pk=id)
+    user_contacts.contacts.add(contact)
+    user_contacts.save()
+
+    return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
 
 def signup_view(request): 
     if request.method == 'POST': 

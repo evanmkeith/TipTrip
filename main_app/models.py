@@ -25,7 +25,7 @@ RATING = (
 
 class Rating(models.Model): 
     reviewee = models.ForeignKey(User, related_name='user_reviewee', on_delete=models.CASCADE)
-    reviewer = models.ForeignKey(User, on_delete=models.PROTECT)
+    reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.CharField(max_length=250, blank=True)
     rating = models.CharField(max_length=1, choices = RATING)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -52,6 +52,7 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     contacts = models.ManyToManyField(User, related_name = "profile_contacts", blank=True)
     ratings = models.ManyToManyField(Rating, blank=True)
+    ratings_ive_written = models.ManyToManyField(Rating, related_name='profile_ratings_ive_written', blank=True)
 
     def __str__(self):
         return self.name

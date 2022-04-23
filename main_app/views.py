@@ -67,15 +67,7 @@ def profile(request, pk):
     user_profile = Profile.objects.get(user=user_account)
     loggedin_user = request.user
 
-    user_ratings = []
-
-    for rating in user_profile.ratings.all():
-        print(rating)
-        user_ratings.append(Rating.objects.get(pk=rating.pk))
-
-    print(user_ratings)
-
-    return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'user_ratings': user_ratings})
+    return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user})
 
 class Rating_Form(forms.ModelForm): 
     class Meta: 
@@ -85,14 +77,17 @@ class Rating_Form(forms.ModelForm):
 def Create_Rating(request, pk, id):
     if request.method == 'POST': 
         form = Rating_Form(request.POST)
-        print("here")
+
         if form.is_valid():
-            print("now here")
             comment = form.cleaned_data['comment']
             rating = form.cleaned_data['rating']
-            print("this spot here")
-            Rating.objects.create(reviewee = User.objects.get(pk=id), reviewer = User.objects.get(pk=pk), comment=comment, rating=rating)
-            print("done")
+            reviewee = Profile.objects.get(pk=id)
+            reviewer = Profile.objects.get(pk=pk)
+            
+            rating = Rating.objects.create(reviewee = User.objects.get(pk=id), reviewer = User.objects.get(pk=pk), comment=comment, rating=rating)
+
+            reviewee.ratings.add(rating)
+            reviewer.ratings_ive_written.add(rating)
 
             return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
         else:

@@ -68,11 +68,14 @@ def profile(request, pk):
     loggedin_user = request.user
 
     ratings = []
-
     for rating in user_profile.ratings.all():
         ratings.append(Rating.objects.get(pk=rating.pk))
+    
+    ratings_ive_written = []
+    for rating in user_profile.ratings_ive_written.all():
+        ratings_ive_written.append(Rating.objects.get(pk=rating.pk))
 
-    return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'ratings': ratings})
+    return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'ratings': ratings, 'ratings_ive_written': ratings_ive_written})
 
 class Rating_Form(forms.ModelForm): 
     class Meta: 

@@ -18,6 +18,15 @@
             <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
             <li>Number of Seats: {{user_profile.num_seats}}</li>
         </ul>
+        <h3>Reviews I've Written:</h3>
+        {% for rating in ratings_ive_written %}
+            <div>
+                <h4>Reviewed: {{rating.reviewee}} | {{rating.rating}} Stars</h4>
+                <p>{{rating.comment}}</p>
+                <a href="">Edit</a><span> | </span><span><a href="">Delete</a></span>
+            </div>
+        {% endfor %}
+        <br>
         <a href="{% url 'edit_profile' user.pk %}">Edit</a>
         <a href="{% url 'delete_profile' user.pk %}">Delete</a>
     {% else %}

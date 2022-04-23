@@ -75,7 +75,16 @@ class Requests(TemplateView):
     template_name = 'requests.html'
 
 class Contacts(TemplateView):
+    model = Profile
     template_name = 'contacts.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        phone_number = self.request.GET.get("phone_number")
+        if phone_number != None:
+            context["contacts"] = Profile.objects.filter(phone_number__icontains=phone_number)
+            context["header"] = f'Searching for {phone_number}'
+        return context
 
 def signup_view(request): 
     if request.method == 'POST': 

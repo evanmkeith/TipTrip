@@ -106,6 +106,20 @@ def Create_Rating(request, pk, id):
         form=Rating_Form()
         reviewee = Profile.objects.get(id=id)
         return render(request, 'create_rating.html', {'form': form , 'reviewee': reviewee})
+
+class Edit_Rating(UpdateView):
+    model = Rating
+    fields = ['comment', 'rating']
+    template_name = 'edit_rating.html'
+
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})
+
+class Delete_Rating(DeleteView):
+    model = Rating
+    template_name = 'rating_delete_confirmation.html'
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})
     
 class Contacts(TemplateView):
     model = Profile

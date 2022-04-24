@@ -21,9 +21,9 @@
         <h3>Reviews I've Written:</h3>
         {% for rating in ratings_ive_written %}
             <div>
-                <h4>Reviewed: {{rating.reviewee}} | {{rating.rating}} Stars</h4>
+                <h4>Reviewed: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
                 <p>{{rating.comment}}</p>
-                <a href="">Edit</a><span> | </span><span><a href="">Delete</a></span>
+                <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> | </span><span><a href="{% url 'delete_rating' rating.pk %}">Delete</a></span>
             </div>
         {% endfor %}
         <br>

@@ -49,8 +49,11 @@
        <h3>Reviews:</h3>
         {% for rating in ratings %}
             <div>
-                <h4>{{rating.reviewer}} | {{rating.rating}} Stars</h4>
+                <h4><a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
                 <p>{{rating.comment}}</p>
+                {% if loggedin_user.pk == rating.reviewer.pk%}
+                    <a href="{% url 'edit_rating' rating.pk %}">Edit</a>
+                {% endif %}
             </div>
         {% endfor %}
     {% endif %}

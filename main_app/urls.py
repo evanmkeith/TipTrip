@@ -18,5 +18,3 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"), 
     path('signup/', views.signup_view, name="signup"), 
 ]
-
-#Still need to add CRUD routes for ratings & user info 

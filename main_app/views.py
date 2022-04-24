@@ -127,13 +127,22 @@ class Contacts(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        phone_number = self.request.GET.get("phone_number")
-        if phone_number != None:
-            context["contacts"] = Profile.objects.filter(phone_number__icontains=phone_number)
-            context["header"] = f'Searching for {phone_number}'
+        search = self.request.GET.get("search")
+        if search != None:
+            search_phone = Profile.objects.filter(phone_number__icontains=search)
+
+            search_name = Profile.objects.filter(name__icontains=search)
+
+            context["contacts"] = []
+
+            if len(search_phone) >= 1: 
+                context["contacts"] = search_phone
+            elif len(search_name) >= 1:
+                context["contacts"] = search_name
+                   
+            context["header"] = f'Searching for {search}'
             
         context["user_profile"] = Profile.objects.get(pk=self.request.user.pk)
-
 
         context["contact_info"] = []
 

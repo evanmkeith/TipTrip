@@ -3,17 +3,19 @@
 {% block content %}
     <form>
         <div>
-            <input type="text" name="phone_number" placeholder="Phone number (No dashes)"/>
+            <input type="text" name="search" placeholder="Phone number (No dashes)"/>
             <input type="submit" value="Search" />
         </div>
         <a href="{% url 'contacts' user.pk %}">Clear Search</a>
     </form>
 
     <h1>{{header}}</h1>
-    {% for contact in contacts %}
-        <p>{{contact.name}}</p>
-        <a href="{% url 'add_contact' user.pk contact.pk %}">Add</a>
-    {% endfor %}
+        {% for contact in contacts %}
+            <p>{{contact.name}}</p>
+            <a href="{% url 'add_contact' user.pk contact.pk %}">Add</a>
+        {% empty %}
+        <p>There are no matching results.</p>
+        {% endfor %}
     <h4>Your Contacts</h4>
     <ul>
         {% for contact in contact_info %}

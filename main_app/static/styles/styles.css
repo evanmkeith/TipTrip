@@ -1,3 +1,27 @@
 h1 {
     color: blue;
 }
+
+nav {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    background-color: #323B58;
+    border-radius: 2px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+/* ICONS */
+/* Home */
+.material-symbols-outlined {
+    color:  #F4C0C0;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}

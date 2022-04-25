@@ -7,30 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}" /> 
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="{% static 'scripts/app.js' %}" defer></script>
     <title>TipTrip</title>
 </head>
 <body>
     <nav>
         {% if user.is_authenticated %}
-            <a href="/admin">Admin</a>
-            <span> | </span>
-            <a href="{% url 'contacts' user.id %}">Contacts</a>
-            <span> | </span>
-            <a href="{% url 'profile' user.pk %}">Profile</a>
-            <span> | </span>
-            <span><a href="{% url 'logout' %}">Logout</a></span>
-            <span> | </span>
+            <a href="{% url 'contacts' user.id %}">
+                <span class="material-symbols-outlined">
+                contacts
+                </span></a>
+            <a href="{% url 'profile' user.pk %}">
+                <span class="material-symbols-outlined">
+                home
+                </span></a>
+            <a href="{% url 'logout' %}">
+                <span class="material-symbols-outlined">
+                logout
+                </span></a>
         {% else %}
-            <span><a href="{% url 'login' %}">Login</a></span>
-            <span> | </span>
-            <span><a href="{% url 'signup' %}">SignUp</a></span>
-            <span> | </span>
+            <a href="{% url 'signup' %}">
+                <span class="material-symbols-outlined">
+                person_add
+                </span></a>
+            <a href="{% url 'login' %}">
+                <span class="material-symbols-outlined">
+                login
+                </span></a>
         {% endif %}
-            <a href="/">Landing</a>
-            <span> | </span>
-            <a href="/about">About</a>
-            <span> | </span>
     </nav>
     {% block content %}
     {% endblock %}

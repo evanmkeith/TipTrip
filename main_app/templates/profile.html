@@ -12,24 +12,42 @@
     {% if loggedin_user.pk == user_account.pk %}
         <div class="user_info">
             <span>{{user_profile.name}}</span><br>
-            <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
-                <span class="material-symbols-outlined">
-                pin_drop
+            <span id="user_options">
+                <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
+                    <span class="material-symbols-outlined">
+                    pin_drop
+                    </span>
+                </a> 
+                <span id="settings" class="material-symbols-outlined">
+                    settings
                 </span>
-            </a> 
+                <div id="edit_page">
+                    <a href="{% url 'edit_profile' user.pk %}">
+                        Edit
+                    </a>
+                    <a href="{% url 'delete_profile' user.pk %}">
+                        Delete
+                    </a>
+                </div>
+            </span>
             <span>{{user_profile.bio}}</span>
         </div>
     </div>
+    <div class="vehicle_info">
         <h3>Vehicle Information:</h3>
-        <ul>
-            <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
-            <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
-            <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
-            <li>Number of Seats: {{user_profile.num_seats}}</li>
-            <li>Fee: {{user_profile.fee}}</li>
-            <li>Currently Available: {{user_profile.available}}<br>
-                <a href="{% url 'edit_availability' loggedin_user.pk %}">Edit availability</a></li>
-        </ul>
+        {% if user_profile.vehicle_type or user_profile.vehicle_make%}
+            <ul>
+                <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
+                <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
+                <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
+                <li>Number of Seats: {{user_profile.num_seats}}</li>
+                <li>Fee: {{user_profile.fee}}</li>
+                <li>Currently Available: {{user_profile.available}}</li>
+            </ul>
+        {% else %}
+            <p>You have not entered any vehicle information.</p>
+        {% endif %}
+    </div>
         <h3>Reviews Written about me:</h3>
         {% if ratings %}
             {% for rating in ratings %}
@@ -57,8 +75,18 @@
                 <p>You have not written any reviews.</p>
         {% endif %}
         <br>
-        <a href="{% url 'edit_profile' user.pk %}">Edit</a>
-        <a href="{% url 'delete_profile' user.pk %}">Delete</a>
+    <div id="edit_profile">
+        <a href="{% url 'edit_profile' user.pk %}">
+            <span class="material-symbols-outlined">
+            edit
+            </span>
+        </a>
+        <a href="{% url 'delete_profile' user.pk %}">
+            <span class="material-symbols-outlined">
+            delete
+            </span>
+        </a>
+    </div>
     {% else %}
         <div class="user_info">
             <span>{{user_profile.name}}</span><br>

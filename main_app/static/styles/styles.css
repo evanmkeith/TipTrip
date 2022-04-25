@@ -1,14 +1,20 @@
-h1 {
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Caladea&family=Cardo:wght@700&display=swap');
+
+h3, h4 {
+    font-family: 'Cardo', serif;
+}
+
+p, span, a {
+    font-family: 'Caladea', serif;
 }
 
 nav {
     display: flex; 
     justify-content: space-around;
     align-items: center;
-    height: 8vh;
+    height: 6.5vh;
     background-color: #323B58;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 nav a {
@@ -45,4 +51,43 @@ nav a {
     flex-direction: column;
     align-items: center;
     padding: 1vh;
+}
+
+.vehicle_info {
+    border: 1px solid #84AFB7;
+    border-radius: 4px;
+}
+
+#user_options {
+    display: flex;
+}
+
+#user_options span {
+    padding: 1vh;
+}
+
+#edit_profile {
+    display: flex;
+    justify-content: space-around;
+}
+
+#settings:hover {
+    cursor: pointer;
+}
+
+#edit_page {
+    display: none;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 1vh;
+    position: absolute; 
+    left: 56.5%;
+    top: 32%;
+    Background-color: #84AFB7;
+}
+
+#edit_page a {
+    text-decoration: none;
+    color: #6F3757;
+    padding: .5vh;
 }

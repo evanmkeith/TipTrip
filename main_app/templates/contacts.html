@@ -46,41 +46,43 @@
         <div id="contact_list">
             {% for contact in contact_info %}
                 <div class="current_contact_info">
+                    <div class="img_about">
                     {% if contact.image_link != "" %}
                         <img src="{{contact.image_link}}" alt="{{contact.name}}"> 
                     {% else %}
                         <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
                     {% endif %}
-                    <div class="contacts_details">
-                        <div>
-                            <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a>
-                            {% if contact.vehicle_type or contact.num_seats or contact.fee%}
-                                {% if contact.available == True %}
-                                    <span id="available" class="material-symbols-outlined">
-                                    check_circle
-                                    </span>
-                                {% else %}
-                                    <span id="not_available" class="material-symbols-outlined">
-                                    cancel
-                                    </span>
+                        <div class="contacts_details">
+                            <div>
+                                <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a>
+                                {% if contact.vehicle_type or contact.num_seats or contact.fee%}
+                                    {% if contact.available == True %}
+                                        <span id="available" class="material-symbols-outlined">
+                                        check_circle
+                                        </span>
+                                    {% else %}
+                                        <span id="not_available" class="material-symbols-outlined">
+                                        cancel
+                                        </span>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
+                            </div>
+                            <span>
+                                {% if contact.vehicle_type %}
+                                    <span class="details">Car Type: </span>{{contact.vehicle_type}}
+                                {% endif %}
+                            </span>
+                            <span>
+                                {% if contact.num_seats %}
+                                    <span class="details">Seats: </span>{{contact.num_seats}}
+                                {% endif %}
+                            </span>
+                            <span>
+                                {% if contact.fee %}
+                                    <span class="details">Fee: </span>{{contact.fee}}
+                                {% endif %}
+                            </span>
                         </div>
-                        <span>
-                            {% if contact.vehicle_type %}
-                                <span class="details">Car Type: </span>{{contact.vehicle_type}}
-                            {% endif %}
-                        </span>
-                        <span>
-                            {% if contact.num_seats %}
-                                <span class="details">Seats: </span>{{contact.num_seats}}
-                            {% endif %}
-                        </span>
-                        <span>
-                            {% if contact.fee %}
-                                <span class="details">Fee: </span>{{contact.fee}}
-                            {% endif %}
-                        </span>
                     </div>
                     <div class="contact_options">
                         <a href="{% url 'remove_contact' user.pk contact.pk %}">

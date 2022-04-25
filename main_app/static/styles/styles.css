@@ -295,12 +295,23 @@ nav a {
 .contacts_details {
     display: flex; 
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .contacts_details div {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.img_about {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.img_about img {
+    padding: 5px;
 }
 
 .details {

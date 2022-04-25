@@ -85,20 +85,37 @@
                     </div>
                 {% endfor %}
             {% else %} 
-                <p>No one has written a review for you.</p>
+            <div class="no_reviews">
+                <p>No one has written a review about you.</p>
+            </div>
             {% endif %}
         </div>
         <div class="reviews_ive_written">
             {% if ratings_ive_written %}
                 {% for rating in ratings_ive_written %}
-                    <div>
-                        <h4>Reviewed: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
-                        <p>{{rating.comment}}</p>
-                        <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> | </span><span><a href="{% url 'delete_rating' rating.pk %}">Delete</a></span>
+                    <div class="review">
+                        <div class="review_details">
+                            <h4><a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
+                            <p>{{rating.comment}}</p>
+                        </div>
+                        <div class="edit_review">
+                            <a href="{% url 'delete_rating' rating.pk %}">
+                                <span class="material-symbols-outlined">
+                                delete
+                                </span>
+                            </a>
+                            <a href="{% url 'edit_rating' rating.pk %}">
+                                <span class="material-symbols-outlined">
+                                edit
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 {% endfor %}
             {% else %}
+                <div class="no_reviews">
                     <p>You have not written any reviews.</p>
+                </div>
             {% endif %}
         </div>
         <br>

@@ -163,14 +163,50 @@ nav a {
 
 .reviews_about_me {
     display: none;
-    border: 1px dashed #BA7D85;
+    border-left: 1px dashed #BA7D85;
+    border-right: 1px dashed #BA7D85;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
 .reviews_ive_written {
     display: flex;
-    border: 1px dashed #BA7D85;
+    border-left: 1px dashed #BA7D85;
+    border-right: 1px dashed #BA7D85;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.review {
+    padding: 2%;
+    border-top: 1px dashed #BA7D85;
+    border-bottom: 1px dashed #BA7D85;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.edit_review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit_review a {
+    padding: 5px;
+}
+
+.no_reviews {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+    border-top: 1px dashed #BA7D85;
+    border-bottom: 1px dashed #BA7D85;
+    border-radius: 5px;
+}
+
+.review_details {
+    padding: 2%;
 }

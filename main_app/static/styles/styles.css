@@ -41,6 +41,10 @@ nav a {
     margin: 2vh;
 }
 
+.bio {
+    text-align: center;
+}
+
 #base_user_info img {
     border-radius: 50%;
     width: 30vw;
@@ -54,7 +58,7 @@ nav a {
 }
 
 .vehicle_info {
-    border: 1px solid #84AFB7;
+    border: 1px solid #ECBABA;
     border-radius: 4px;
     padding-left: 1vh;
     padding-right: 1vh;
@@ -113,4 +117,60 @@ nav a {
 .availability {
     display: flex;
     align-items: center;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.review_selector {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #BA7D85;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#by_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-top-left-radius: 5px;
+    background-color: #ECBABA;
+}
+
+#by_me:hover {
+    cursor: pointer;
+}
+
+#about_me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-top-right-radius: 5px;
+    background-color: #BA7D85
+}
+
+#about_me:hover {
+    cursor: pointer;
+}
+
+.reviews_about_me {
+    display: none;
+    border: 1px dashed #BA7D85;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.reviews_ive_written {
+    display: flex;
+    border: 1px dashed #BA7D85;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

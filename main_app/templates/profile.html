@@ -13,19 +13,41 @@
             <li>Name: {{user_profile.name}}</li>
             <li>Zip Code: {{user_profile.zip_code}}</li>
             <li>Bio: {{user_profile.bio}}</li>
+        </ul>
+        <h3>Vehicle Information:</h3>
+        <ul>
             <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
             <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
             <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
             <li>Number of Seats: {{user_profile.num_seats}}</li>
+            <li>Fee: {{user_profile.fee}}</li>
         </ul>
+        <h3>Reviews Written about me:</h3>
+        {% if ratings %}
+            {% for rating in ratings %}
+                <div>
+                    <h4>From: <a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
+                    <p>{{rating.comment}}</p>
+                    {% if loggedin_user.pk == rating.reviewer.pk%}
+                        <a href="{% url 'edit_rating' rating.pk %}">Edit</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %} 
+            <p>No one has written a review for you.</p>
+        {% endif %}
         <h3>Reviews I've Written:</h3>
-        {% for rating in ratings_ive_written %}
-            <div>
-                <h4>Reviewed: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
-                <p>{{rating.comment}}</p>
-                <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> | </span><span><a href="{% url 'delete_rating' rating.pk %}">Delete</a></span>
-            </div>
-        {% endfor %}
+        {% if ratings_ive_written %}
+            {% for rating in ratings_ive_written %}
+                <div>
+                    <h4>Reviewed: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
+                    <p>{{rating.comment}}</p>
+                    <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> | </span><span><a href="{% url 'delete_rating' rating.pk %}">Delete</a></span>
+                </div>
+            {% endfor %}
+        {% else %}
+                <p>You have not written any reviews.</p>
+        {% endif %}
         <br>
         <a href="{% url 'edit_profile' user.pk %}">Edit</a>
         <a href="{% url 'delete_profile' user.pk %}">Delete</a>
@@ -46,16 +68,22 @@
                 <li>Active: {{user_profile.available}}</li>
             </ul>
         {% endif %}
-       <h3>Reviews:</h3>
-        {% for rating in ratings %}
-            <div>
-                <h4><a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
-                <p>{{rating.comment}}</p>
-                {% if loggedin_user.pk == rating.reviewer.pk%}
-                    <a href="{% url 'edit_rating' rating.pk %}">Edit</a>
-                {% endif %}
-            </div>
-        {% endfor %}
+        <a href="{% url 'create_rating' loggedin_user.pk user_account.pk %}">Write a review for {{user_profile.name}}</a>
+        <h3>Reviews:</h3>
+        {% if ratings %}
+            {% for rating in ratings %}
+                <div>
+                    <h4><a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
+                    <p>{{rating.comment}}</p>
+                    {% if loggedin_user.pk == rating.reviewer.pk%}
+                        <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> |</span>
+                        <a href="{% url 'delete_rating' rating.pk %}">Delete</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No one has written a review for {{user_profile.name}}.</p>
+        {% endif %}
     {% endif %}
     
     

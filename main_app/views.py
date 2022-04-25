@@ -77,6 +77,8 @@ def profile(request, pk):
 
     return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'ratings': ratings, 'ratings_ive_written': ratings_ive_written})
 
+
+
 class Rating_Form(forms.ModelForm): 
     class Meta: 
         model=Rating
@@ -97,7 +99,7 @@ def Create_Rating(request, pk, id):
             reviewee.ratings.add(rating)
             reviewer.ratings_ive_written.add(rating)
 
-            return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
+            return HttpResponseRedirect('/user/'+str(id))
         else:
             reviewee = Profile.objects.get(id=id)
 
@@ -113,13 +115,20 @@ class Edit_Rating(UpdateView):
     template_name = 'edit_rating.html'
 
     def get_success_url(self):
-        return reverse('profile', kwargs={'pk': self.object.pk})
+        rating = Rating.objects.get(pk=self.object.pk)
+        user = User.objects.get(pk=rating.reviewer.pk)
+
+        return reverse('profile', kwargs={'pk': user.pk})
 
 class Delete_Rating(DeleteView):
     model = Rating
     template_name = 'rating_delete_confirmation.html'
+
     def get_success_url(self):
-        return reverse('profile', kwargs={'pk': self.object.pk})
+        rating = Rating.objects.get(pk=self.object.pk)
+        user = User.objects.get(pk=rating.reviewer.pk)
+
+        return reverse('profile', kwargs={'pk': user.pk})
     
 class Contacts(TemplateView):
     model = Profile

@@ -36,13 +36,26 @@
     <div class="vehicle_info">
         <h3>Vehicle Information:</h3>
         {% if user_profile.vehicle_type or user_profile.vehicle_make%}
-            <ul>
-                <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
-                <li>Vehicle Make: {{user_profile.vehicle_make}}</li>
-                <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
-                <li>Number of Seats: {{user_profile.num_seats}}</li>
-                <li>Fee: {{user_profile.fee}}</li>
-                <li>Currently Available: {{user_profile.available}}</li>
+            <ul class="vehicle_list">
+                <li><span>Vehicle Type: </span>{{user_profile.vehicle_type}}</li>
+                <li><span>Vehicle Make: </span>{{user_profile.vehicle_make}}</li>
+                <li><span>Vehicle Model: </span>{{user_profile.vehicle_model}}</li>
+                <li><span>Number of Seats: </span>{{user_profile.num_seats}}</li>
+                <li><span>Fee: </span>{{user_profile.fee}}</li>
+                <li>
+                    <div class="availability">
+                        <span><a href="{% url 'edit_availability' user.pk %}" >Currently Available:</a></span> 
+                        {% if  user_profile.available%}
+                            <span id="available" class="material-symbols-outlined">
+                            check_circle
+                            </span>
+                        {% else %}
+                            <span id="not_available" class="material-symbols-outlined">
+                            cancel
+                            </span>
+                        {% endif %}
+                    </div>
+                </li>
             </ul>
         {% else %}
             <p>You have not entered any vehicle information.</p>
@@ -75,18 +88,6 @@
                 <p>You have not written any reviews.</p>
         {% endif %}
         <br>
-    <div id="edit_profile">
-        <a href="{% url 'edit_profile' user.pk %}">
-            <span class="material-symbols-outlined">
-            edit
-            </span>
-        </a>
-        <a href="{% url 'delete_profile' user.pk %}">
-            <span class="material-symbols-outlined">
-            delete
-            </span>
-        </a>
-    </div>
     {% else %}
         <div class="user_info">
             <span>{{user_profile.name}}</span><br>

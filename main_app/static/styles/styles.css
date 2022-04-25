@@ -4,7 +4,7 @@ h3, h4 {
     font-family: 'Cardo', serif;
 }
 
-p, span, a {
+p, span, a, li {
     font-family: 'Caladea', serif;
 }
 
@@ -56,6 +56,8 @@ nav a {
 .vehicle_info {
     border: 1px solid #84AFB7;
     border-radius: 4px;
+    padding-left: 1vh;
+    padding-right: 1vh;
 }
 
 #user_options {
@@ -64,11 +66,6 @@ nav a {
 
 #user_options span {
     padding: 1vh;
-}
-
-#edit_profile {
-    display: flex;
-    justify-content: space-around;
 }
 
 #settings:hover {
@@ -90,4 +87,30 @@ nav a {
     text-decoration: none;
     color: #6F3757;
     padding: .5vh;
+}
+
+.vehicle_list {
+    list-style-type: none;
+}
+
+.vehicle_list li {
+    padding: 3px;
+    color: blue;
+}
+
+.vehicle_list li span {
+    color: #6C3654;
+}
+
+#available {
+    color: green;
+}
+
+#not_available {
+    color: red;
+}
+
+.availability {
+    display: flex;
+    align-items: center;
 }

@@ -13,17 +13,6 @@
         <div class="user_info">
             <div id="user_name">
                 <span>{{user_profile.name}} </span>
-                {% if user_profile.vehicle_type or user_profile.vehicle_make%}
-                    {% if  user_profile.available%}
-                        <span id="available" class="material-symbols-outlined">
-                        check_circle
-                        </span>
-                    {% else %}
-                        <span id="not_available" class="material-symbols-outlined">
-                        cancel
-                        </span>
-                    {% endif %}
-                {% endif %}
             </div>
             <span id="user_options">
                 <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
@@ -171,20 +160,6 @@
                 <li><span>Vehicle Model: </span>{{user_profile.vehicle_model}}</li>
                 <li><span>Number of Seats: </span>{{user_profile.num_seats}}</li>
                 <li><span>Fee: </span>{{user_profile.fee}}</li>
-                <li>
-                    <div class="availability">
-                        <span><a href="{% url 'edit_availability' user.pk %}" >Currently Available:</a></span> 
-                        {% if  user_profile.available%}
-                            <span id="available" class="material-symbols-outlined">
-                            check_circle
-                            </span>
-                        {% else %}
-                            <span id="not_available" class="material-symbols-outlined">
-                            cancel
-                            </span>
-                        {% endif %}
-                    </div>
-                </li>
             </ul>
         </div>
         {% endif %}

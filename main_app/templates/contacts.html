@@ -12,75 +12,88 @@
             </div>
             <a href="{% url 'contacts' user.pk %}">
                 <span class="material-symbols-outlined">
-                backspace
+                clear_all
                 </span>
             </a>
         </form>
     {% if header %}
     <h4>{{header}}</h4>
-    {% endif %}
-    {% for contact in contacts %}
-        <div class="contact_info">
-            <span>
-            {% if contact.image_link != "" %}
-                <img src="{{contact.image_link}}" alt="{{contact.name}}"> 
-            {% else %}
-                <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
-            {% endif %}<span> {{contact.name}}</span></span>
-            <div>
-                <a href="https://www.google.com/maps/place/{{contact.zip_code}}/" target="_blank">
-                    <span class="material-symbols-outlined">
-                    pin_drop
-                    </span>
-                </a> 
-                <a href="{% url 'add_contact' user.pk contact.pk %}">
-                    <span class="material-symbols-outlined">
-                    person_add
-                    </span>
-                </a>
+        {% for contact in contacts %}
+            <div class="contact_info">
+                <span>
+                {% if contact.image_link != "" %}
+                    <img src="{{contact.image_link}}" alt="{{contact.name}}"> 
+                {% else %}
+                    <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
+                {% endif %}<span> {{contact.name}}</span></span>
+                <div>
+                    <a href="https://www.google.com/maps/place/{{contact.zip_code}}/" target="_blank">
+                        <span class="material-symbols-outlined">
+                        pin_drop
+                        </span>
+                    </a> 
+                    <a href="{% url 'add_contact' user.pk contact.pk %}">
+                        <span class="material-symbols-outlined">
+                        person_add
+                        </span>
+                    </a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
     <div id="contacts">
         <h3>Your Contacts</h3>
         <div id="contact_list">
             {% for contact in contact_info %}
-                <div>
+                <div class="current_contact_info">
                     {% if contact.image_link != "" %}
                         <img src="{{contact.image_link}}" alt="{{contact.name}}"> 
                     {% else %}
                         <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
                     {% endif %}
-                    <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a><br>
-                    <span>
-                        {% if contact.vehicle_type %}
-                        Car Type: {{contact.vehicle_type}} |
-                        {% endif %}
-                    </span>
-                    <span>
-                        {% if contact.num_seats %}
-                        Seats: {{contact.num_seats}}
-                        {% endif %}
-                    </span><br>
-                    <span>
-                        {% if contact.fee %}
-                            Fee: {{contact.fee}} |
-                        {% endif %}
-                    </span>
-                    {% if contact.vehicle_type or contact.num_seats or contact.fee%}
-                        {% if contact.available == True %}
-                            <span id="available" class="material-symbols-outlined">
-                            check_circle
+                    <div class="contacts_details">
+                        <div>
+                            <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a>
+                            {% if contact.vehicle_type or contact.num_seats or contact.fee%}
+                                {% if contact.available == True %}
+                                    <span id="available" class="material-symbols-outlined">
+                                    check_circle
+                                    </span>
+                                {% else %}
+                                    <span id="not_available" class="material-symbols-outlined">
+                                    cancel
+                                    </span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <span>
+                            {% if contact.vehicle_type %}
+                                <span class="details">Car Type: </span>{{contact.vehicle_type}}
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if contact.num_seats %}
+                                <span class="details">Seats: </span>{{contact.num_seats}}
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if contact.fee %}
+                                <span class="details">Fee: </span>{{contact.fee}}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="contact_options">
+                        <a href="{% url 'remove_contact' user.pk contact.pk %}">
+                            <span class="material-symbols-outlined">
+                            person_remove
                             </span>
-                        {% else %}
-                            <span id="not_available" class="material-symbols-outlined">
-                            cancel
+                        </a>
+                        <a href="sms:{{contact.phone_number}}">
+                            <span class="material-symbols-outlined">
+                            sms
                             </span>
-                        {% endif %}
-                    {% endif %}
-                    <br>
-                    <a href="sms:{{contact.phone_number}}">Text</a>
-                    <a href="{% url 'remove_contact' user.pk contact.pk %}">Remove</a>
+                        </a>
+                    </div>
                 </div>
             {% empty %}
                 <div>You have not added any contacts.</div>

@@ -9,6 +9,7 @@
 
 
     {% if loggedin_user.pk == user_account.pk %}
+        <a href="{% url 'edit_availability' loggedin_user.pk %}">Edit availability</a>
         <ul>
             <li>Name: {{user_profile.name}}</li>
             <li>Zip Code: {{user_profile.zip_code}}</li>
@@ -21,6 +22,7 @@
             <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
             <li>Number of Seats: {{user_profile.num_seats}}</li>
             <li>Fee: {{user_profile.fee}}</li>
+            <li>Currently Available: {{user_profile.available}}</li>
         </ul>
         <h3>Reviews Written about me:</h3>
         {% if ratings %}
@@ -65,7 +67,7 @@
                 <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
                 <li>Number of Seats: {{user_profile.num_seats}}</li>
                 <li>Fee: {{user_profile.fee}}</li>
-                <li>Active: {{user_profile.available}}</li>
+                <li>Currently Available: {{user_profile.available}}</li>
             </ul>
         {% endif %}
         <a href="{% url 'create_rating' loggedin_user.pk user_account.pk %}">Write a review for {{user_profile.name}}</a>

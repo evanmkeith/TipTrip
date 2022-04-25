@@ -10,24 +10,39 @@
     </form>
 
     <h1>{{header}}</h1>
-        {% for contact in contacts %}
-            <p>{{contact.name}}</p>
-            <a href="{% url 'add_contact' user.pk contact.pk %}">Add</a>
-        {% empty %}
-        <p>There are no matching results.</p>
-        {% endfor %}
-    <h4>Your Contacts</h4>
+    {% for contact in contacts %}
+        <p>{{contact.name}}</p>
+        <a href="{% url 'add_contact' user.pk contact.pk %}">Add</a>
+    {% endfor %}
+    <h4>Your Contacts:</h4>
     <ul>
         {% for contact in contact_info %}
             <li>
-                <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a><br>
-                <span>Car Type: {{contact.vehicle_type}} |</span>
-                <span>Seats: {{contact.num_seats}}</span><br>
-                <span>Fee: {{contact.fee}} |</span>
-                {% if contact.available == True %}
-                    <span>Available: Yes</span>
+                {% if contact.image_link != "" %}
+                    <img src="{{contact.image_link}}" alt="{{contact.name}}"> 
                 {% else %}
-                    <span>Available: Yes</span>
+                    <img src="https://picsum.photos/200/200?grayscale" alt="Profile Image" />
+                 {% endif %}
+                <a href="{% url 'profile' contact.pk %}">{{contact.name}}</a><br>
+                <span>
+                    {% if contact.vehicle_type %}
+                    Car Type: {{contact.vehicle_type}} |
+                    {% endif %}
+                </span>
+                <span>
+                    {% if contact.num_seats %}
+                    Seats: {{contact.num_seats}}
+                    {% endif %}
+                </span><br>
+                <span>
+                    {% if contact.fee %}
+                        Fee: {{contact.fee}} |
+                    {% endif %}
+                </span>
+                {% if contact.available == True %}
+                    <span>Currently Available: Yes</span>
+                {% else %}
+                    <span>Currently Available: No</span>
                 {% endif %}
                 <br>
                 <a href="sms:{{contact.phone_number}}">Text</a>

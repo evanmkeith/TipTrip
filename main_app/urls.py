@@ -7,6 +7,7 @@ urlpatterns = [
     path('user/<int:pk>/new', views.Create_Profile, name="create_profile"),
     path('user/<int:pk>', views.profile, name="profile"), 
     path('user/<int:pk>/edit', views.Edit_Profile.as_view(), name="edit_profile"),
+    path('user/<int:pk>/availability', views.Edit_Availability.as_view(), name="edit_availability"),
     path('user/<int:pk>/delete', views.Delete_Profile.as_view(), name="delete_profile"),
     path('user/<int:pk>/rating/<int:id>', views.Create_Rating, name="create_rating"),  
     path('rating/<int:pk>/edit', views.Edit_Rating.as_view(), name="edit_rating"),

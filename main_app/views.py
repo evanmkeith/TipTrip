@@ -77,7 +77,13 @@ def profile(request, pk):
 
     return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'ratings': ratings, 'ratings_ive_written': ratings_ive_written})
 
+class Edit_Availability(UpdateView):
+    model = Profile
+    fields = ['available']
+    template_name = 'edit_availability.html'
 
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})
 
 class Rating_Form(forms.ModelForm): 
     class Meta: 

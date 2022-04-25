@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="base_user_info">
     {% if user_profile.image_link != "" %}
         <img src="{{user_profile.image_link}}" alt="{{user_profile.name}}" />
     {% else %}
@@ -9,12 +10,16 @@
 
 
     {% if loggedin_user.pk == user_account.pk %}
-        <a href="{% url 'edit_availability' loggedin_user.pk %}">Edit availability</a>
-        <ul>
-            <li>Name: {{user_profile.name}}</li>
-            <li>Zip Code: {{user_profile.zip_code}}</li>
-            <li>Bio: {{user_profile.bio}}</li>
-        </ul>
+        <div class="user_info">
+            <span>{{user_profile.name}}</span><br>
+            <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
+                <span class="material-symbols-outlined">
+                pin_drop
+                </span>
+            </a> 
+            <span>{{user_profile.bio}}</span>
+        </div>
+    </div>
         <h3>Vehicle Information:</h3>
         <ul>
             <li>Vehicle Type: {{user_profile.vehicle_type}}</li>
@@ -22,7 +27,8 @@
             <li>Vehicle Model: {{user_profile.vehicle_model}}</li>
             <li>Number of Seats: {{user_profile.num_seats}}</li>
             <li>Fee: {{user_profile.fee}}</li>
-            <li>Currently Available: {{user_profile.available}}</li>
+            <li>Currently Available: {{user_profile.available}}<br>
+                <a href="{% url 'edit_availability' loggedin_user.pk %}">Edit availability</a></li>
         </ul>
         <h3>Reviews Written about me:</h3>
         {% if ratings %}
@@ -54,11 +60,16 @@
         <a href="{% url 'edit_profile' user.pk %}">Edit</a>
         <a href="{% url 'delete_profile' user.pk %}">Delete</a>
     {% else %}
-        <ul>
-            <li>Name: {{user_profile.name}}</li>
-            <li>Zip Code: {{user_profile.zip_code}}</li>
-            <li>Bio: {{user_profile.bio}}</li>
-        </ul>
+        <div class="user_info">
+            <span>{{user_profile.name}}</span><br>
+            <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
+                <span class="material-symbols-outlined">
+                pin_drop
+                </span>
+            </a> 
+            <span>{{user_profile.bio}}</span>
+        </div>
+    </div>
         {% if user_profile.vehicle_type or user_profile.vehicle_make%}
             <h4>Vehicle Information:</h4>
             <ul>
@@ -86,6 +97,7 @@
         {% else %}
             <p>No one has written a review for {{user_profile.name}}.</p>
         {% endif %}
+    
     {% endif %}
     
     

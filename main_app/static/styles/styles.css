@@ -63,8 +63,7 @@ nav a {
 }
 
 #user_details a {
-    padding: 2px;
-    
+    padding: 8px;
 }
 
 .vehicle_info {
@@ -109,7 +108,7 @@ nav a {
 
 .vehicle_list li {
     padding: 3px;
-    color: blue;
+    color: black;
 }
 
 .vehicle_list li span {
@@ -224,4 +223,70 @@ nav a {
 #reviews_title {
     display: flex;
     align-items: center;
+}
+
+#user_name {
+    display: flex;
+    align-items: center;
+}
+
+
+/* CONTACT PAGE */
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2vh;
+}
+
+#search div {
+    display: flex;
+    align-items: center;
+}
+
+#submit_btn {
+    background-color: white;
+    border: none;
+}
+
+.contact_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #BA7D85;
+}
+
+.contact_info img {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.contact_info span {
+    display: flex;
+    align-items: center;
+}
+
+.contact_info span span {
+    padding: 5px;
+}
+
+.contact_info a {
+    text-decoration: none;
+}
+
+.contact_info div {
+    display: flex;
+}
+
+#contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact_list {
+    border: 1px solid red;
+    width: 100%;
 }

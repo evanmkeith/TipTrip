@@ -11,7 +11,20 @@
 
     {% if loggedin_user.pk == user_account.pk %}
         <div class="user_info">
-            <span>{{user_profile.name}}</span><br>
+            <div id="user_name">
+                <span>{{user_profile.name}} </span>
+                {% if user_profile.vehicle_type or user_profile.vehicle_make%}
+                    {% if  user_profile.available%}
+                        <span id="available" class="material-symbols-outlined">
+                        check_circle
+                        </span>
+                    {% else %}
+                        <span id="not_available" class="material-symbols-outlined">
+                        cancel
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </div>
             <span id="user_options">
                 <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
                     <span class="material-symbols-outlined">
@@ -120,7 +133,20 @@
         <br>
     {% else %}
         <div class="user_info">
-            <span>{{user_profile.name}}</span><br>
+            <div id="user_name">
+                <span>{{user_profile.name}} </span>
+                {% if user_profile.vehicle_type or user_profile.vehicle_make%}
+                    {% if  user_profile.available%}
+                        <span id="available" class="material-symbols-outlined">
+                        check_circle
+                        </span>
+                    {% else %}
+                        <span id="not_available" class="material-symbols-outlined">
+                        cancel
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </div>
             <div id="user_details">
                 <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
                     <span class="material-symbols-outlined">

@@ -76,13 +76,12 @@
         <div class="reviews_about_me">
             {% if ratings %}
                 {% for rating in ratings %}
-                    <div>
-                        <h4>From: <a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
+                <div class="review">
+                    <div class="review_details">
+                        <h4>From: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
                         <p>{{rating.comment}}</p>
-                        {% if loggedin_user.pk == rating.reviewer.pk%}
-                            <a href="{% url 'edit_rating' rating.pk %}">Edit</a>
-                        {% endif %}
                     </div>
+                </div>
                 {% endfor %}
             {% else %} 
             <div class="no_reviews">
@@ -122,11 +121,18 @@
     {% else %}
         <div class="user_info">
             <span>{{user_profile.name}}</span><br>
-            <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
-                <span class="material-symbols-outlined">
-                pin_drop
-                </span>
-            </a> 
+            <div id="user_details">
+                <a href="https://www.google.com/maps/place/{{user_profile.zip_code}}/" target="_blank">
+                    <span class="material-symbols-outlined">
+                    pin_drop
+                    </span>
+                </a> 
+                <a href="sms:{{user_profile.phone_number}}">
+                    <span class="material-symbols-outlined">
+                    sms
+                    </span>
+                </a>
+            </div>
             <span class="bio">{{user_profile.bio}}</span>
         </div>
     </div>
@@ -156,22 +162,42 @@
             </ul>
         </div>
         {% endif %}
-        <a href="{% url 'create_rating' loggedin_user.pk user_account.pk %}">Write a review for {{user_profile.name}}</a>
-        <h3>Reviews:</h3>
-        {% if ratings %}
-            {% for rating in ratings %}
-                <div>
-                    <h4><a href="{% url 'profile'  rating.reviewer.pk %}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
-                    <p>{{rating.comment}}</p>
-                    {% if loggedin_user.pk == rating.reviewer.pk%}
-                        <a href="{% url 'edit_rating' rating.pk %}">Edit</a><span> |</span>
-                        <a href="{% url 'delete_rating' rating.pk %}">Delete</a>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No one has written a review for {{user_profile.name}}.</p>
-        {% endif %}
+        <div class="reviews">
+            <div id="reviews_title">
+                <a href="{% url 'create_rating' loggedin_user.pk user_account.pk %}">
+                    <span class="material-symbols-outlined">
+                    add_circle
+                    </span>
+                </a>
+                <h3>Reviews </h3>
+            </div>
+            {% if ratings %}
+                {% for rating in ratings %}
+                    <div class="review">
+                        <div class="review_details">
+                            <h4><a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
+                            <p>{{rating.comment}}</p>
+                        </div>
+                        {% if loggedin_user.pk == rating.reviewer.pk%}
+                            <div class="edit_review">
+                                <a href="{% url 'delete_rating' rating.pk %}">
+                                    <span class="material-symbols-outlined">
+                                    delete
+                                    </span>
+                                </a>
+                                <a href="{% url 'edit_rating' rating.pk %}">
+                                    <span class="material-symbols-outlined">
+                                    edit
+                                    </span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No one has written a review for {{user_profile.name}}.</p>
+            {% endif %}
+        </div>
     
     {% endif %}
     

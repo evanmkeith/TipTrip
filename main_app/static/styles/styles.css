@@ -57,6 +57,16 @@ nav a {
     padding: 1vh;
 }
 
+#user_details {
+    display: flex;
+    padding: 5px;
+}
+
+#user_details a {
+    padding: 2px;
+    
+}
+
 .vehicle_info {
     border: 1px solid #ECBABA;
     border-radius: 4px;
@@ -209,4 +219,9 @@ nav a {
 
 .review_details {
     padding: 2%;
+}
+
+#reviews_title {
+    display: flex;
+    align-items: center;
 }

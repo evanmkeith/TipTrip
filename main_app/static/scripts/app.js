@@ -18,24 +18,24 @@ settings.addEventListener('click', function(e){
 
 by_me.addEventListener('click', function(e){
     e.preventDefault();
-    if(by_me.style.backgroundColor === '#ECBABA'){
+    if(by_me.style.backgroundColor === '#84AFB7'){
     } else {
-        about_me.style.backgroundColor = '#BA7D85';
+        about_me.style.backgroundColor = '#5A8494';
         reviews_about_me.style.display = 'none';
 
-        by_me.style.backgroundColor = '#ECBABA';
+        by_me.style.backgroundColor = '#84AFB7';
         reviews_ive_written.style.display = 'flex'; 
     }
 })
 
 about_me.addEventListener('click', function(e){
     e.preventDefault();
-    if(about_me.style.backgroundColor === '#ECBABA'){
+    if(about_me.style.backgroundColor === '#84AFB7'){
     } else {
-        by_me.style.backgroundColor = '#BA7D85';
+        by_me.style.backgroundColor = '#5A8494';
         reviews_ive_written.style.display = 'none'; 
 
-        about_me.style.backgroundColor = '#ECBABA';
+        about_me.style.backgroundColor = '#84AFB7';
         reviews_about_me.style.display = 'flex';
     }
 })

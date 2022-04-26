@@ -26,7 +26,7 @@ RATING = (
 class Rating(models.Model): 
     reviewee = models.ForeignKey(User, related_name='user_reviewee', on_delete=models.CASCADE)
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=250, blank=True)
+    comment = models.TextField(blank=True)
     rating = models.CharField(max_length=1, choices = RATING)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -48,7 +48,7 @@ class Profile(models.Model):
     num_seats = models.IntegerField(blank=True, null=True)
     fee = models.CharField(max_length=160, blank=True)
     available = models.BooleanField()
-    bio = models.CharField(max_length=250, blank=True)
+    bio = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     contacts = models.ManyToManyField(User, related_name = "profile_contacts", blank=True)
     ratings = models.ManyToManyField(Rating, blank=True)

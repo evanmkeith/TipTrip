@@ -8,6 +8,11 @@ p, span, a, li {
     font-family: 'Caladea', serif;
 }
 
+a {
+    text-decoration: none;
+    color: #84AFB7;
+}
+
 nav {
     display: flex; 
     justify-content: space-around;
@@ -15,6 +20,8 @@ nav {
     height: 6.5vh;
     background-color: #323B58;
     border-radius: 3px;
+    position: sticky;
+    top: 0;
 }
 
 nav a {
@@ -24,7 +31,7 @@ nav a {
 /* ICONS */
 /* Home */
 .material-symbols-outlined {
-    color:  #F4C0C0;
+    color:  #5A8494;
     font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -68,7 +75,7 @@ nav a {
 }
 
 .vehicle_info {
-    border: 1px solid #ECBABA;
+    border: 1px solid #5A8494;
     border-radius: 4px;
     padding-left: 1vh;
     padding-right: 1vh;
@@ -88,12 +95,11 @@ nav a {
 
 #edit_page {
     display: none;
-    flex-direction: column;
+    margin-top: 5px;
+    width: 35%;
+    justify-content: space-between;
     border-radius: 5px;
     padding: 1vh;
-    position: absolute; 
-    left: 56.5%;
-    top: 32%;
     Background-color: #84AFB7;
 }
 
@@ -140,7 +146,7 @@ nav a {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: #BA7D85;
+    background-color: #84AFB7;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -151,7 +157,7 @@ nav a {
     align-items: center;
     width: 50%;
     border-top-left-radius: 5px;
-    background-color: #ECBABA;
+    background-color: #84AFB7;
 }
 
 #by_me:hover {
@@ -164,7 +170,7 @@ nav a {
     align-items: center;
     width: 50%;
     border-top-right-radius: 5px;
-    background-color: #BA7D85
+    background-color: #5A8494;
 }
 
 #about_me:hover {
@@ -173,24 +179,24 @@ nav a {
 
 .reviews_about_me {
     display: none;
-    border-left: 1px dashed #BA7D85;
-    border-right: 1px dashed #BA7D85;
+    border-left: 1px dashed #84AFB7;
+    border-right: 1px dashed #84AFB7;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
 .reviews_ive_written {
     display: flex;
-    border-left: 1px dashed #BA7D85;
-    border-right: 1px dashed #BA7D85;
+    border-left: 1px dashed #84AFB7;
+    border-right: 1px dashed #84AFB7;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
 .review {
     padding: 2%;
-    border-top: 1px dashed #BA7D85;
-    border-bottom: 1px dashed #BA7D85;
+    border-top: 1px dashed #84AFB7;
+    border-bottom: 1px dashed #84AFB7;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -212,8 +218,8 @@ nav a {
     padding-left: 2%;
     padding-right: 2%;
     width: 100%;
-    border-top: 1px dashed #BA7D85;
-    border-bottom: 1px dashed #BA7D85;
+    border-top: 1px dashed #84AFB7;
+    border-bottom: 1px dashed #84AFB7;
     border-radius: 5px;
 }
 
@@ -256,7 +262,7 @@ nav a {
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    border-bottom: 1px dashed #BA7D85;
+    border-bottom: 1px dashed #84AFB7;
 }
 
 .contact_info img {
@@ -330,7 +336,7 @@ nav a {
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    border: 1px solid #BA7D85;
+    border: 1px solid #84AFB7;
     border-radius: 5px;
 }
 

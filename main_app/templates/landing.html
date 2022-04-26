@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Landing Page</h1>
+<div class="landing">
+    <h1>TipTrip</h1>
+    <p>Rideshare with your friends</p>
+    <a href="{% url 'about' %}">Learn More</a>
+    <div  id="landing_actions">
+        <a href="{% url 'signup' %}">
+            Signup
+        </a>
+        <a href="{% url 'login' %}">
+            Login
+        </a>
+    </div>
+</div>
+    
 {% endblock %}

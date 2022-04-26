@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="form">
     <p>You are submitting a rating for {{reviewee}}</p>
     <form method="post">
         <!-- Security Feature  -->
@@ -8,6 +9,9 @@
         <!--  Generate inputs  -->
         {{form.as_p}} 
         <!--  Submit form  -->
-          <input type="submit" value="Submit" />
+        <div>
+            <button type="submit">Submit</button>
+        </div>
     </form>
+</div>
 {% endblock %}

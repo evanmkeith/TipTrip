@@ -96,7 +96,7 @@ nav a {
 #edit_page {
     display: none;
     margin-top: 5px;
-    width: 35%;
+    width: 22%;
     justify-content: space-between;
     border-radius: 5px;
     padding: 1vh;
@@ -345,3 +345,64 @@ nav a {
     height: 70px;
     border-radius: 50%;
 }
+
+/* FORMS */
+.form form p{
+    display: flex;
+    flex-direction: column;
+}
+
+.form form {
+    border: 1px solid #6C3654;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    margin: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avail_form {
+    border: 1px solid #6C3654;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    margin: 10px;
+}
+
+.avail_for form p{
+    display: flex;
+    flex-direction: column;
+}
+
+.avail_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avail_form p {
+    text-align: center;
+}
+
+form div {
+    display: flex;
+    justify-content: center;
+}
+
+form div button {
+    background-color: #6C3654;
+    color: #C08189;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+

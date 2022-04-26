@@ -117,6 +117,7 @@ class Edit_Rating(UpdateView):
     def get_success_url(self):
         rating = Rating.objects.get(pk=self.object.pk)
         user = User.objects.get(pk=rating.reviewer.pk)
+        reviewee = User.objects.get(pk=rating.reviewee.pk)
 
         return reverse('profile', kwargs={'pk': user.pk})
 

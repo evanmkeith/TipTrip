@@ -1,13 +1,17 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Availability</h1>
-<p>By setting yourself as available, you are letting your contacts know that you are currently free to pickup or lend your vehicle.</p>
+<div class="avail_form">
+  <h3>Availability</h3>
+  <p>By setting yourself as available, you are letting your contacts know that you are currently free to pickup or lend your vehicle.</p>
 
-<form action="" method="post">
-  {% csrf_token %} 
-  {{form.as_p}} 
-  <input type="submit" value="Submit" />
-</form>
+  <form action="" method="post">
+    {% csrf_token %} 
+    {{form.as_p}} 
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
 
 {% endblock %}

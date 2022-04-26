@@ -49,7 +49,7 @@ nav a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 2vh;
+    margin: 4vh 2vh 2vh 2vh;
 }
 
 .bio {
@@ -100,17 +100,18 @@ nav a {
 #edit_page {
     display: none;
     margin-top: 5px;
-    width: 22%;
     justify-content: space-between;
     border-radius: 5px;
     padding: 1vh;
-    Background-color: #84AFB7;
+    border: 2px dashed #84AFB7;
 }
 
 #edit_page a {
     text-decoration: none;
-    color: #6F3757;
-    padding: .5vh;
+}
+
+#edit_profile {
+    padding-left: 2vh;
 }
 
 .vehicle_list {
@@ -123,7 +124,7 @@ nav a {
 }
 
 .vehicle_list li span {
-    color: #6C3654;
+    color: #323B58;
 }
 
 #available {
@@ -325,7 +326,7 @@ nav a {
 }
 
 .details {
-    color: #6C3654
+    color: #323B58;
 }
 
 .contact_options {

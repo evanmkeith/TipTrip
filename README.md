@@ -1,27 +1,43 @@
 # TipTrip
 
 ## Concept:
-TipTrip is meant to be a ride-share/pickup app where the drivers are people you know within your own community. When you sign up, you can seelct to easily set your availablity to drive or you can request a pickup from a friend nearby. This also allows you the ability to contact friends to see if you can borrow their car at a later date
+TipTrip was made to help people get around without needing to pay a lot or get in the car with a stranger. This app connects you with people you already know to see if they have a vehicle and are able to either pick you up or let you borrow their car.
+
+Sign up:
+Create an account and enter in your location and your vehicle information if you have one. If you do plan to be a driver or offer your car, you can set a custom fee so your friends know what to expect.
+
+Add your friends:
+Navigate to the contacts section to find your friends so you can see who is available with a car and what car they have.
+
+Set Your Availability:
+Setting your availability lets your friends know if you are currently available to pick them up or for them to come borrow your car.
+
+Message Friends:
+TipTrip utilizes your devices sms messaging app to communicate with your friends.
+
+See that a friend is listed as available?
+Send them a text to see if they can pick you up or schedule a time to pick you up.
+See that they aren't available?
+Send them a text asking if you can borrow their car at a later date.
+Moving and specifically need a truck?
+Search through your contacts to see which of your friends has a truck and send them a text to see if you can borrow it!
+Rate your friends:
+Have some feedback you want to leave for you your friends so others can see if they are dependable? Leave them a review through the app so others can see it when they view their friends page.
 
 ## User Stories: 
-- As a user, I want to add who I want as someone who can pick me up/pick something up for meor lend me their car.
+- As a user, I want to add who I want as someone who can pick me up/pick something up for me or lend me their car.
 - As a user, I want to be able to rate someone as dependable or not.
 - As a user, I want to be able to easily switch between being a driver or being someone who needs help.
 - As a user, I want to be able to easily chat with the driver/rider.
 - As a user, I want to see who is available to drive when I need them.
-- As a user, I want to set my availability as a driver for a specific amount of time.
-- As a user, I want to send a request to a driver with the details of the pickup and location.
+- As a user, I want to set my availability as a driver.
 - As a user I want to specify when the pickup ought to happen.
-- As a user, I want to have the option to either pick up or be picked up when I sign up.
-- As a user, I want to first signup as someone who wants to be picked up.
 - As a user, I want to see the location that the driver services.
 - As a driver, I want to be able to set my "rate" or what I expect in return for a pickup/lend.
-- As a user, I want to be able to see if I can borrow a friends car at a later date.
-- As a user, I want to be able 
-to see how many times a friend has been a driver or lent out their car. 
+- As a user, I want to be able to see if I can borrow a friends car at a later date. 
 
 ## ERD: 
-![Screen Shot 2022-04-16 at 2 56 25 PM](https://user-images.githubusercontent.com/55766816/163692559-109b75b6-3762-4bfa-9bc0-efffefa7dbf9.png)
+![Screen Shot 2022-04-26 at 10 50 30 PM](https://user-images.githubusercontent.com/55766816/165450073-5f119c4f-0310-42db-939d-bee53cfd7486.png)
 
 ## Wireframes:
 Landing Page<br/>
@@ -41,8 +57,6 @@ Profile of not logged in user<br/>
 Contacts<br/>
 ![Screen Shot 2022-04-16 at 3 58 46 PM](https://user-images.githubusercontent.com/55766816/163693769-05476300-bb9e-4680-8168-eb6f9fc60b14.png)<br/>
 
-
-
 ## Technologies Used:
     - HTML
     - CSS
@@ -51,14 +65,15 @@ Contacts<br/>
     - JavaScript
 
 ## Approach:
-Explain your approach to develop the app/game
+I initailly set off by designing my wireframes which I learned was a mistake as I didn't account for how my data models would relate to one another. Once I did that, I had to edit my wireframes and add more functionality. 
+
+Eventually I removed functionality as I did not see the value it was adding and wanted to simplofy the app. 
 
 ## Challenges:
-List any challenges and how you overcame them
-Indicate any outstanding problems
+The main challenges of this app were figuring out the models and how they connect as well as deplying on Heroku. I worked through these by reaching out to my colleagues and my good friend Google. 
 
-## Additional information:
-Add anything else you would like us to know
+## Additional information 
+The app is meant to be used on a mobile device but can be used on desktop. 
 
 ## App Demo
-Link to GitHub project (i.e. - username.github.io)
+https://tip-trip-app.herokuapp.com/

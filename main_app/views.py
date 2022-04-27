@@ -184,8 +184,10 @@ def signup_view(request):
         if form.is_valid(): 
             user = form.save()
             login(request, user)
-            print("Hello there, ", user.username)
-            return HttpResponseRedirect('/user/'+str(user.id)+'/new')
+
+            Profile.objects.create(user=User.objects.get(pk=user.id), available=False)
+
+            return HttpResponseRedirect('/user/'+str(user.id))
         else: 
             return render(request, 'signup.html', {'form': form})
     else: 

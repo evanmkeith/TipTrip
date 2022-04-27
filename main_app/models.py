@@ -38,10 +38,10 @@ class Rating(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=True)
     image_link = models.CharField(max_length=250, blank=True)
-    phone_number = models.CharField(max_length=11)
-    zip_code = models.CharField(max_length=5)
+    phone_number = models.CharField(max_length=11, blank=True)
+    zip_code = models.CharField(max_length=5, blank=True)
     vehicle_type = models.CharField(max_length=15, blank=True, choices = VEHICLE_TYPES)
     vehicle_make = models.CharField(blank=True, max_length=15)
     vehicle_model = models.CharField(max_length=15, blank=True)

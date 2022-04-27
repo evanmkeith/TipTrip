@@ -24,8 +24,10 @@
                     settings
                 </span>
             </span>
-            {% if uer_profile.bio %}
+            {% if user_profile.bio %}
                 <span class="bio">{{user_profile.bio}}</span>
+            {% elif user_profile.bio == "" and user_profile.name == ""%}
+                <span class="bio">Welcome to TipTrip. To get started you will want to edit your page using the gear button above to add in your name, an image link, your bio, location, and vehicle information if you have one. Once you have done that, you can navigate to your contact page (upper left hand corner) to add your friends. Have fun!</span>
             {% else %}
                 <span class="bio">You have not entered an about section.</span>
             {% endif %}

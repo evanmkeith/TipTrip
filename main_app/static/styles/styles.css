@@ -237,6 +237,16 @@ nav a {
     border-radius: 5px;
 }
 
+.about_me_no_review {
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+    border-bottom: 1px dashed #84AFB7;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
 .review_details {
     padding: 2%;
 }
@@ -487,16 +497,3 @@ form div button {
     padding: 20px;
 }
 
-/* RESPONSIVE DESIGN */
-@media screen and (min-width: 650px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    body div {
-        width: 50vw;
-    }
-}

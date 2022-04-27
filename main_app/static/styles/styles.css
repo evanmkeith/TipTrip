@@ -191,6 +191,14 @@ nav a {
     border-bottom-right-radius: 5px;
 }
 
+.about_me_review {
+    padding: 2%;
+    border-bottom: 1px dashed #84AFB7;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
 .reviews_ive_written {
     display: flex;
     border-left: 1px dashed #84AFB7;

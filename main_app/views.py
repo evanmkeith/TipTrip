@@ -26,22 +26,6 @@ class Profile_Form(forms.ModelForm):
         model=Profile
         fields = ['name', 'phone_number', 'zip_code']
 
-def Create_Profile(request, pk): 
-    if request.method == 'POST': 
-        form = Profile_Form(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            phone_number = form.cleaned_data['phone_number']
-            zip_code = form.cleaned_data['zip_code']
-
-            Profile.objects.create(user=User.objects.get(pk=pk), name=name,  phone_number=phone_number,zip_code=zip_code, available=False)
-            return HttpResponseRedirect('/user/'+str(pk))
-        else:
-            return render(request, 'create_profile.html', {'form': form})
-    else: 
-        form=Profile_Form()
-        return render(request, 'create_profile.html', {'form': form})
-
 class Edit_Profile(UpdateView): 
     model = Profile
     fields = ['name', 'image_link', 'phone_number', 'zip_code', 'vehicle_type', 'vehicle_make', 'vehicle_model', 'num_seats', 'fee', 'bio']

@@ -200,7 +200,7 @@ nav a {
 }
 
 .reviews_ive_written {
-    display: none;
+    display: flex;
     flex-direction: column;
     border-left: 1px dashed #84AFB7;
     border-right: 1px dashed #84AFB7;

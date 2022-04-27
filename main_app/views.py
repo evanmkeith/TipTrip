@@ -26,6 +26,7 @@ class Profile_Form(forms.ModelForm):
         model=Profile
         fields = ['name', 'phone_number', 'zip_code']
 
+@method_decorator(login_required, name='dispatch')
 class Edit_Profile(UpdateView): 
     model = Profile
     fields = ['name', 'image_link', 'phone_number', 'zip_code', 'vehicle_type', 'vehicle_make', 'vehicle_model', 'num_seats', 'fee', 'bio']
@@ -34,12 +35,13 @@ class Edit_Profile(UpdateView):
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class Delete_Profile(DeleteView):
     model = User
     template_name = 'user_delete_confirmation.html'
     success_url = "/"
 
-#@login_required
+@login_required
 def profile(request, pk):
     user_account = User.objects.get(pk=pk)
     user_profile = Profile.objects.get(user=user_account)
@@ -55,6 +57,7 @@ def profile(request, pk):
 
     return render(request, 'profile.html', {'user_account': user_account, 'user_profile': user_profile, 'loggedin_user': loggedin_user, 'ratings': ratings, 'ratings_ive_written': ratings_ive_written})
 
+@method_decorator(login_required, name='dispatch')
 class Edit_Availability(UpdateView):
     model = Profile
     fields = ['available']
@@ -68,6 +71,7 @@ class Rating_Form(forms.ModelForm):
         model=Rating
         fields = ['comment', 'rating']
 
+@method_decorator(login_required, name='dispatch')
 def Create_Rating(request, pk, id):
     if request.method == 'POST': 
         form = Rating_Form(request.POST)
@@ -93,6 +97,7 @@ def Create_Rating(request, pk, id):
         reviewee = Profile.objects.get(id=id)
         return render(request, 'create_rating.html', {'form': form , 'reviewee': reviewee})
 
+@method_decorator(login_required, name='dispatch')
 class Edit_Rating(UpdateView):
     model = Rating
     fields = ['comment', 'rating']
@@ -105,6 +110,7 @@ class Edit_Rating(UpdateView):
 
         return reverse('profile', kwargs={'pk': user.pk})
 
+@method_decorator(login_required, name='dispatch')
 class Delete_Rating(DeleteView):
     model = Rating
     template_name = 'rating_delete_confirmation.html'
@@ -115,6 +121,7 @@ class Delete_Rating(DeleteView):
 
         return reverse('profile', kwargs={'pk': user.pk})
     
+@method_decorator(login_required, name='dispatch')
 class Contacts(TemplateView):
     model = Profile
     template_name = 'contacts.html'
@@ -146,6 +153,7 @@ class Contacts(TemplateView):
         
         return context
 
+@method_decorator(login_required, name='dispatch')
 def Add_Contact(request, pk, id):
     user_contacts = Profile.objects.get(pk=pk)
     contact = User.objects.get(pk=id)
@@ -154,6 +162,7 @@ def Add_Contact(request, pk, id):
 
     return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
 
+@method_decorator(login_required, name='dispatch')
 def Remove_Contact(request, pk, id): 
     user_contacts = Profile.objects.get(pk=pk)
     contact = User.objects.get(pk=id)
@@ -178,6 +187,7 @@ def signup_view(request):
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
 
+@method_decorator(login_required, name='dispatch')
 def logout_view(request): 
     logout(request)
     return HttpResponseRedirect('/')

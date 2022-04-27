@@ -200,11 +200,11 @@ nav a {
 }
 
 .reviews_ive_written {
+    padding: 2%;
+    border-bottom: 1px dashed #84AFB7;
     display: flex;
-    border-left: 1px dashed #84AFB7;
-    border-right: 1px dashed #84AFB7;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    justify-content: space-around;
+    border-radius: 5px;
 }
 
 .review {

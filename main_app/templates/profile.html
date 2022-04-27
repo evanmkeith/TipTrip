@@ -191,7 +191,7 @@
                 {% for rating in ratings %}
                     <div class="review">
                         <div class="review_details">
-                            <h4><a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewee}}</a> | {{rating.rating}} Stars</h4>
+                            <h4><a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
                             <p>{{rating.comment}}</p>
                         </div>
                         {% if loggedin_user.pk == rating.reviewer.pk%}

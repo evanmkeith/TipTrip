@@ -486,3 +486,10 @@ form div button {
 #back {
     padding: 20px;
 }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 650px) {
+    body {
+        width: 60%;
+    }
+}

@@ -97,7 +97,7 @@
                 {% for rating in ratings %}
                 <div class="about_me_review">
                     <div class="review_details">
-                        <h4>From: <a href="{% url 'profile' rating.reviewee.pk%}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
+                        <h4>From: <a href="{% url 'profile' rating.reviewer.pk%}">{{rating.reviewer}}</a> | {{rating.rating}} Stars</h4>
                         <p>{{rating.comment}}</p>
                     </div>
                 </div>

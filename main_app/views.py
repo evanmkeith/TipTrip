@@ -71,7 +71,7 @@ class Rating_Form(forms.ModelForm):
         model=Rating
         fields = ['comment', 'rating']
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def Create_Rating(request, pk, id):
     if request.method == 'POST': 
         form = Rating_Form(request.POST)
@@ -153,7 +153,7 @@ class Contacts(TemplateView):
         
         return context
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def Add_Contact(request, pk, id):
     user_contacts = Profile.objects.get(pk=pk)
     contact = User.objects.get(pk=id)
@@ -162,7 +162,7 @@ def Add_Contact(request, pk, id):
 
     return HttpResponseRedirect('/user/'+str(pk)+'/contacts')
 
-@method_decorator(login_required, name='dispatch')
+@login_required
 def Remove_Contact(request, pk, id): 
     user_contacts = Profile.objects.get(pk=pk)
     contact = User.objects.get(pk=id)

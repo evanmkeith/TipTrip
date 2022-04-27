@@ -500,7 +500,7 @@ form div button {
 /* RESPONSIVE DESIGN */
 @media screen and (min-width: 650px) {
     #base_user_info img {
-        height: 50px;
-        width: 50px;
+        height: 100px;
+        width: 100px;
     }
 }

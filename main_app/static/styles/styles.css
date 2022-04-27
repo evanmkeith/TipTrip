@@ -482,3 +482,7 @@ form div button {
 #about div {
     width: 80vw;
 }
+
+#back {
+    padding: 20px;
+}

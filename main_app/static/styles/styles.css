@@ -240,7 +240,7 @@ nav a {
 .about_me_no_review {
     padding-left: 2%;
     padding-right: 2%;
-    width: 100%;
+    border-top: 1px dashed #84AFB7;
     border-bottom: 1px dashed #84AFB7;
     display: flex;
     justify-content: space-around;
@@ -497,3 +497,10 @@ form div button {
     padding: 20px;
 }
 
+/* RESPONSIVE DESIGN */
+@media screen and (min-width: 650px) {
+    #base_user_info img {
+        height: 50px;
+        width: 50px;
+    }
+}

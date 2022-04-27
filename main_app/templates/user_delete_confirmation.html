@@ -1,11 +1,11 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<div class="form">
+<div class="delete_form">
   <h3>Are you sure you want to delete the account associated with {{user.username}}?</h3>
   <form method="post">
     {% csrf_token %}
-    <div>
+    <div class="delete_form_options">
     <!-- confirm cat delete -->
       <input type="submit" value="Confirm" />
       <!-- Redirect back to detail on cancel -->

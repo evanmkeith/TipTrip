@@ -420,6 +420,34 @@ form div button {
     padding: 10px;
 }
 
+.delete_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.delete_form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    margin: 10px;
+}
+.delete_form_options {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete_form_options input {
+    background-color: #5A8494;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 0 5px 0;
+}
+
 /* LANDING */
 .landing {
     display: flex;
